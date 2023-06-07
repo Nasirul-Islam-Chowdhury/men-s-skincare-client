@@ -34,7 +34,7 @@ const HomePageCarousel = () => {
   return (
     <div className="carousel  w-full  py-5">
     {
-      bannerData.map(slide => <BannerItem key={slide.id} slide={slide} />)
+      bannerData.map((slide,i) => <BannerItem key={i} slide={slide} />)
     }
     
   </div>

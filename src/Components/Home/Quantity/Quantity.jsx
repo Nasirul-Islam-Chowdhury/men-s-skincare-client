@@ -59,15 +59,15 @@ const Quantity = () => {
           </div>
         </div>
 
-        <div class="inline-flex items-center justify-center w-full  mx-auto text-light">
-          <hr class="w-full h-0.5  bg-gray-100 border-0 rounded container" />
+        <div className="inline-flex items-center justify-center w-full  mx-auto text-light">
+          <hr className="w-full h-0.5  bg-gray-100 border-0 rounded container" />
         </div>
       </div>
 
       <div className="bg-[#252422] py-32">
-        <div className="lg:grid grid-cols-3  container">
-          {cards.map((card) => (
-            <div className={`card w-96 border-2  p-5 my-5 ${card.class}`}>
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  container">
+          {cards.map((card, i) => (
+            <div key={i} className={`card w-96 border-2  p-5 my-5 ${card.class}`}>
               <div className="card-body">
                
                   <MdVerified className="w-14 h-14 mx-0"/>

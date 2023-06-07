@@ -14,8 +14,7 @@ const Banner = () => {
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            ad minim veniam
           </p>
           <button className="btn btn-outline rounded-full px-16 mt-10">
             Learn More
@@ -23,10 +22,13 @@ const Banner = () => {
         </div>
         <div className="lg:w-2/6 w-1/2">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam
           </p>
-          <h3>Lorem ipsum dolor sit amet.</h3>
+          <button className="btn btn-outline rounded-full px-16 mt-10">
+            Learn More
+          </button>
         </div>
       </div>
     </div>
