@@ -37,7 +37,7 @@ const Services = () => {
       </p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
         {services.map((service) => (
-          <div key={service._id} className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div key={service._id} className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
             <figure>
               <img
                 src={service.img}

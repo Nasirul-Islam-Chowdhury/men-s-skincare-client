@@ -1,10 +1,12 @@
 import React from 'react';
 
 const AppointmentCard = ({service, setCare}) => {
+ 
     return (
-        <div key={service._id} className="card card-compact w-96 bg-base-100 shadow-xl ">
+        <div key={service._id} className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
         <figure>
           <img
+          className='w-full'
             src={service.img}
             alt="Shoes"
           />
@@ -19,7 +21,7 @@ const AppointmentCard = ({service, setCare}) => {
           </div>
           <div className='flex justify-center my-4'>
           
-          <a onClick={setCare()} href="#my_modal_8"   className="btn btn-outline" >Book Now</a>
+          <a onClick={()=>setCare(service)} href="#my_modal_8"   className="btn btn-outline px-10" >Book Appointment</a>
           </div>
         </div>
       </div>

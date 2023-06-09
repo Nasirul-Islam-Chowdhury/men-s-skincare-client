@@ -32,7 +32,7 @@ const HomePageCarousel = () => {
       
 
   return (
-    <div className="carousel  w-full  py-5">
+    <div className="carousel  w-full  py-5 ">
     {
       bannerData.map((slide,i) => <BannerItem key={i} slide={slide} />)
     }

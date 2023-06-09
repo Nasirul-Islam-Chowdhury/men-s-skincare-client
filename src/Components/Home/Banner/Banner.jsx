@@ -26,9 +26,12 @@ const Banner = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam
           </p>
-          <button className="btn btn-outline rounded-full px-16 mt-10">
+          <div className="flex justify-end">
+
+          <button className="btn btn-outline rounded-full px-16 mt-10 ">
             Learn More
           </button>
+          </div>
         </div>
       </div>
     </div>

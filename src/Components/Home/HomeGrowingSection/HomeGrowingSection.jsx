@@ -12,7 +12,7 @@ const HomeGrowingSection = () => {
       skin Care for Men, we've got you covered
       </h2>
       <p className='my-8'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.</p>
-      <button className='btn rounded-full btn-outline btn-primary px-16'> Learn More</button>
+      <button className='btn rounded-full btn-outline  px-16 border-white text-white'> Learn More</button>
             </div>
             <div className='lg:w-1/2 mt-10'>
        

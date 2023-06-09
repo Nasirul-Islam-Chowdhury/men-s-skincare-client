@@ -29,13 +29,13 @@ const Quantity = () => {
   ];
   return (
     <div>
-      <div className="bg-[#252422] text-white">
-        <div className="container py-10 lg:flex justify-between items-center">
+      <div className="bg-[#252422] text-white ">
+        <div className="container py-10 lg:flex justify-between items-center ">
           <div className="lg:w-3/12 ">
             <h2 className="text-2xl font-bold font-primary italic ">
               LookBook Glowmen
             </h2>
-            <div className="w-full ">
+            <div className="w-full">
               <HomePageCarousel className="w-full mx-auto" />
             </div>
           </div>
@@ -65,9 +65,9 @@ const Quantity = () => {
       </div>
 
       <div className="bg-[#252422] py-32">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  container">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 container mx-auto">
           {cards.map((card, i) => (
-            <div key={i} className={`card w-96 border-2  p-5 my-5 ${card.class}`}>
+            <div key={i} className={`card w-96 border-2  p-5 my-5 ${card.class} mx-auto`}>
               <div className="card-body">
                
                   <MdVerified className="w-14 h-14 mx-0"/>

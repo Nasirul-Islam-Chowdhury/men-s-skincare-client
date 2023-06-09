@@ -21,7 +21,7 @@ const AuthContextProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const loginUSer = (email, password) => {
+  const userSignin = (email, password) => {
     setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -33,7 +33,7 @@ const AuthContextProvider = ({ children }) => {
   const handleUpdateProfile = (userInfo) => {
     return updateProfile(auth.currentUser, userInfo);
   };
-  const handleGooglesignin = () => {
+  const googlesignin = () => {
     return signInWithPopup(auth, googleProvider);
   };
   useEffect(() => {
@@ -50,12 +50,12 @@ const AuthContextProvider = ({ children }) => {
   const authInfo = {
     createUser,
     resetPassword,
-    loginUSer,
+    userSignin,
     user,
     logOut,
     handleUpdateProfile,
     loader,
-    handleGooglesignin,
+    googlesignin,
   };
   return (
     <div>
