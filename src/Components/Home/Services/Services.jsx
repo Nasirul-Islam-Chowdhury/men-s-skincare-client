@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../../../Shared/Loading/Loading";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -13,15 +14,7 @@ const Services = () => {
       });
   }, []);
   if (laoding) {
-    return (
-      <>
-        <progress className="progress w-56" value={0} max="100"></progress>
-        <progress className="progress w-56" value="10" max="100"></progress>
-        <progress className="progress w-56" value="40" max="100"></progress>
-        <progress className="progress w-56" value="70" max="100"></progress>
-        <progress className="progress w-56" value="100" max="100"></progress>
-      </>
-    );
+    return <Loading/>
   }
   return (
     <div className="container py-20">

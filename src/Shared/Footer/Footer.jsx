@@ -2,6 +2,7 @@ import React from "react";
 import { IoLocation} from "react-icons/io5";
 import {FaPhone, FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 import {MdEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-[#252422] text-base-200 pt-28">
@@ -12,36 +13,87 @@ const Footer = () => {
      <small className="lg:text-start text-center">mens skin care</small>
      </h4>
           <p className="my-6 lg:w-2/3 w-full  lg:text-start  text-center">
-            Lorem ipsum dolor sit amet, consectetur adipisicingeius natus ipsam
+          There are lots of fun and exciting components of being a beauty editor, but as much as we love sitting at our desks and swatching
           </p>
         
         </div>
         <div className="lg:w-1/5">
           <h1 className="text-xl font-bold font-primary italic lg:text-start text-center">Navigation</h1>
           <div className="flex flex-col gap-1 my-5 lg:items-start items-center">
-            <h1>Home</h1>
-            <h1>Page</h1>
-            <h1>Home</h1>
-            <h1>Home</h1>
+            <h1>
+              <Link to="/">
+              Home
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/appointment">
+             Appointment
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/dashboard">
+              My Appointment
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/signup">
+              Register
+              </Link>
+            </h1>
+           
           </div>
           
         </div>
         <div className="lg:w-1/5">
           <h1 className="text-xl font-bold font-primary italic lg:text-start text-center">Quick Link</h1>
-          <div className="flex flex-col gap-1 lg:items-start items-center my-5">
-            <h1>Home</h1>
-            <h1>Page</h1>
-            <h1>Home</h1>
-            <h1>Home</h1>
+          <div className="flex flex-col gap-1 my-5 lg:items-start items-center">
+            <h1>
+              <Link to="/">
+              Home
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/appointment">
+             Appointment
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/dashboard">
+              My Appointment
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/signup">
+              Register
+              </Link>
+            </h1>
+           
           </div>
         </div>
         <div className="lg:w-1/5">
           <h1 className="text-xl font-bold font-primary italic lg:text-start text-center">Services</h1>
-          <div className="flex flex-col lg:items-start items-center gap-1 my-5">
-            <h1>Home</h1>
-            <h1>Page</h1>
-            <h1>Home</h1>
-            <h1>Home</h1>
+          <div className="flex flex-col gap-1 my-5 lg:items-start items-center">
+            <h1>
+              <Link to="/">
+              Home
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/appointment">
+             Appointment
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/dashboard">
+              My Appointment
+              </Link>
+            </h1>
+            <h1>
+              <Link to="/signup">
+              Register
+              </Link>
+            </h1>
+           
           </div>
         </div>
       </div>

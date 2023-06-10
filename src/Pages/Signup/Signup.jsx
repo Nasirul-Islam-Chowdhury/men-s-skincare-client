@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Shared/Contexts/AuthContext";
 import useToken from "../../Shared/Hooks/useToken";
+import { toast } from "react-hot-toast";
 
 
 const Signup = () => {
@@ -39,7 +40,7 @@ const saveUser = (name, email) => {
     const password = form.password.value;
     const confirmPassword = form.confirm.value;
     if (password !== confirmPassword) {
-      setError("Password didn't match");
+     return setError("Password didn't match");
     }
     if (!/[*@!#%&()^~{}]+/.test(password)) {
       return setError("Please input atleast one special character");
@@ -53,7 +54,7 @@ const saveUser = (name, email) => {
           .then((res) => {
             saveUser(name,email)
             form.reset();
-            setError("User Created Successfully");
+            toast.success("user created successfully")
           })
           .catch((error) => console.log(error));
       })

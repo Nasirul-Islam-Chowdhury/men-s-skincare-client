@@ -52,9 +52,7 @@ const Quantity = () => {
               </h4>
             </div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Excepturi dolorum minus ducimus culpa a sit adipisci ad debitis
-              pariatur et!
+            There are lots of fun and exciting components of being a beauty editor, but as much as we love sitting at our desks and swatching the latest and greatest to hit our beauty closet, there's definitely more action during our day-to-day work.
             </p>
           </div>
         </div>

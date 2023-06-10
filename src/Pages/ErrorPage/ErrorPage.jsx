@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { isRouteErrorResponse, useNavigate, useRouteError } from 'react-router-dom';
 import { AuthContext } from '../../Shared/Contexts/AuthContext';
+import { IoConstructOutline } from 'react-icons/io5';
 
 const ErrorPage = () => {
+  const [errormsg, setErrormsg] = useState("");
     const navigate = useNavigate()
     const {logOut} = useContext(AuthContext)
     const handleLogout =()=>{
@@ -12,11 +14,8 @@ const ErrorPage = () => {
         })
         .catch(err=>console.log(err))
     }
-    const [errormsg, setErrormsg] = useState("");
     const error = useRouteError();
-
-    if (isRouteErrorResponse(error)) {
-       
+   
       if (error.status === 404) {
         return setErrormsg("This page doesn't exist!")
       }
@@ -32,7 +31,7 @@ const ErrorPage = () => {
       if (error.status === 418) {
         return setErrormsg("🫖")
       }
-    }
+    
   
     return <div className='min-h-screen flex justify-center items-center'>
         <div >

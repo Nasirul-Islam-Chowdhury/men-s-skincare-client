@@ -32,17 +32,20 @@ const Login = () => {
         })
         .catch(error => {
             console.log(error)
-            setError(error.message)
+           return setError(error.message)
         })
     }
     const handleGoogleSignin = ()=>{
         googlesignin()
         .then(user => {
-            setLoginUser(user.user.email)
-           
+          return  setLoginUser(user.user.email)
         })
 
-        .catch(error=>console.log(error))
+        .catch(error=>{
+            
+            console.log(error)
+           return setError(error.message)
+        })
     }
  
     return (
