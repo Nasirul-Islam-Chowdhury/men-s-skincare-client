@@ -29,10 +29,11 @@ const AppointmentModal = ({setCare, care, selected, refetch}) => {
       phone,
       price: care.price
     }
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`,{
+    fetch(`https://men-s-skincare-server.vercel.app/bookings?email=${user?.email}`,{
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`
       },
       body: JSON.stringify(bookingModal)
     })

@@ -9,10 +9,10 @@ const MyAppointment = () => {
     const { data: bookings = [], isLoading } = useQuery({
       queryKey: ["bookings", user?.email],
       queryFn: () =>
-        fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
-        //   headers: {
-            // autherization: `bearer ${localStorage.getItem("accessToken")}`,
-        //   },
+        fetch(`https://men-s-skincare-server.vercel.app/bookings?email=${user?.email}`, {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         }).then((data) => data.json()),
     });
     if(isLoading){
@@ -21,13 +21,12 @@ const MyAppointment = () => {
     return (
 <div>
 {
-    bookings.length>0 &&
-    <div className="p-5">
-      <h3 className="text-3xl mb-5">My Appointement</h3>
+    bookings &&
+    <div>
+      <h3 className="text-3xl mb-5">My Appointements</h3>
 
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
+      <div className="lg:overflow-x-auto overflow-x-scroll w-full whitespace-nowrap">
+        <table className="table w-full bg-[#F4F3EE]">
           <thead>
             <tr>
               <th></th>
@@ -38,7 +37,7 @@ const MyAppointment = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings?.length>0 &&
+            {
               bookings.map((book, i) => (
                 <tr key={i}>
                   <th>{i + 1}</th>
@@ -66,9 +65,9 @@ const MyAppointment = () => {
     </div>
 }
 {
-    bookings.length == 0 &&
-    <div className='flex justify-center items-center container min-h-[800px]'>
-     <p className='lg:text-4xl md:text-3xl text-2xl font-bold text-center min-h-100vh'>   You Haven't Booked Any Appointment Yet</p>
+    bookings.length < 1 &&
+    <div className='flex justify-center items-center container min-h-screen bg-[#F4F3EE'>
+     <p className='lg:text-3xl md:text-2xl text-xl font-semibold text-center'>   You Haven't Booked Any Appointment Yet</p>
     </div>
 }
 </div>

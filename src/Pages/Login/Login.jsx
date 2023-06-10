@@ -1,25 +1,34 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Shared/Contexts/AuthContext';
-import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
+import {FaGoogle} from 'react-icons/fa';
+import useToken from '../../Shared/Hooks/useToken';
 
 const Login = () => {
-    const {userSignin, googlesignin, facebookSignin} = useContext(AuthContext);
+    const {userSignin, googlesignin} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
     const [error, setError] = useState("");
+    const [loginUser, setLoginUser] = useState(null)
+    const [token] = useToken(loginUser)
+    if(token){
+        navigate(from, {replace: true})
+    }
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value
         const password = form.password.value
-        event.target.reset();
+       
         
         userSignin(email, password)
         .then(res => {          
             console.log(res.user)
-          
+            setLoginUser(res.user.email)
+            event.target.reset();
+        
         })
         .catch(error => {
             console.log(error)
@@ -29,22 +38,13 @@ const Login = () => {
     const handleGoogleSignin = ()=>{
         googlesignin()
         .then(user => {
-            console.log(user.user);
-          
+            setLoginUser(user.user.email)
+           
         })
 
         .catch(error=>console.log(error))
     }
-    const handlefacebookSignin = ()=>{
-        facebookSignin()
-        .then(res =>{
-            console.log(res.user)
-            
-            navigate(from, {replace: true})
-
-        })
-        .catch(error=>console.log(error))
-    }
+ 
     return (
         <div className=" container my-20">
         <div className='w-full flex justify-center mx-auto rounded-2xl max-w-lg'>

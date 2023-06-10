@@ -34,7 +34,8 @@ const AuthContextProvider = ({ children }) => {
     return updateProfile(auth.currentUser, userInfo);
   };
   const googlesignin = () => {
-    return signInWithPopup(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider)
+    
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

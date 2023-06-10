@@ -6,16 +6,24 @@ import { toast } from 'react-hot-toast';
 const AllUsers = () => {
     const {data: users=[], isLoading, refetch} = useQuery({
         queryKey: 'users',
-        queryFn:()=> fetch('http://localhost:5000/users').then(res=>res.json())
-    })
+        queryFn:()=> fetch('https://men-s-skincare-server.vercel.app/users',{
+            headers:{
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res=>res.json())
+       
+    }
+    )
     if(isLoading){
         return <Loading/>
     }
+    
     const handleMakeAdmin = (id)=>{
-        fetch(`http://localhost:5000/user/admin/${id}`,{
+        fetch(`https://men-s-skincare-server.vercel.app/user/admin/${id}`,{
             method: "PUT",
             headers: {
-                autherization: `bearer ${localStorage.getItem('accessToken')}`
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
             }
         })
         .then(res=>res.json())
@@ -27,7 +35,7 @@ const AllUsers = () => {
             console.log(data)})
     }
     const handleDelete = (id)=>{
-        fetch(`http://localhost:5000/user/${id}`,{
+        fetch(`https://men-s-skincare-server.vercel.app/user/${id}`,{
             method: "DeLETE",
         })
         .then(res=>res.json())
@@ -40,8 +48,8 @@ const AllUsers = () => {
     }
 
     return (
-        <div className='p-5'>
-        <h2 className='text-3xl'>All Users</h2>
+        <div className='p-5 min-h-screen'>
+        <h2 className='text-3xl font-primary'>All Users: {users?.length}</h2>
         <div className="overflow-x-auto">
     <table className="table">
       {/* head */}
@@ -56,6 +64,7 @@ const AllUsers = () => {
       </thead>
       <tbody>
        {
+        users &&
         users.map((user, i)=><tr key={i}>
             <td>{i+1}</td>
             <td>{user.name}</td>

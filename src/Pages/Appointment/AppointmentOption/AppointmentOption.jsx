@@ -12,7 +12,12 @@ const AppointmentOption = ({ selected }) => {
   } = useQuery({
     queryKey: ["services"],
     queryFn: () =>
-      fetch(`http://localhost:5000/services`).then((res) => res.json())
+      fetch(`https://men-s-skincare-server.vercel.app/services`,{
+        headers:{
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        }
+      })
+      .then((res) => res.json())
   });
   if (isLoading) {
     return (

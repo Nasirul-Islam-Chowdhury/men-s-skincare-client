@@ -54,7 +54,7 @@ const Footer = () => {
             </h2>
           </div>
           <div  className="flex  items-center lg:justify-start gap-3 lg:w-1/5  justify-center my-4">
-            <FaPhone className="w-8 h-8" />
+            <FaPhone className="w-6 h-6" />
             <span className="font-bold font-primary text-lg italic">
               {" "}
              01644113296

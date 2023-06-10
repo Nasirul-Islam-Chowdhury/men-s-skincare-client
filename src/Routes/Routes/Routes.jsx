@@ -8,11 +8,18 @@ import Login from '../../Pages/Login/Login';
 import DashboardLayout from '../../Layout/DashboardLayout/DashboardLayout';
 import MyAppointment from '../../Pages/Dashboard/MyAppointment/MyAppointment';
 import AllUsers from '../../Pages/Dashboard/AllUsers/AllUsers';
+import AddEstheticians from '../../Pages/Dashboard/AddEstheticians/AddEstheticians';
+import ManageEstheticians from '../../Pages/Dashboard/ManageEstheticians/ManageEstheticians';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
+import AdminRoutes from '../AdminRoutes/AdminRoutes';
+import Payment from '../../Pages/Dashboard/Payment/Payment';
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout/>,
+        errorElement: <ErrorPage/>,
         children:[
             {
                 path: '/',
@@ -34,7 +41,8 @@ export const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element: <DashboardLayout/>,
+        element: <PrivateRoute><DashboardLayout/></PrivateRoute>,
+        errorElement: <ErrorPage/>,
         children:[
             {
                 path: '/dashboard',
@@ -42,7 +50,20 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allusers',
-                element: <AllUsers/>
+                element: <AdminRoutes><AllUsers/></AdminRoutes>
+            },
+            {
+                path: '/dashboard/addEstheticians',
+                element:<AdminRoutes> <AddEstheticians/></AdminRoutes>
+            },
+            {
+                path: '/dashboard/estheticians',
+                element: <AdminRoutes><ManageEstheticians/></AdminRoutes>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <AdminRoutes><Payment/></AdminRoutes>,
+                loader: ({params})=> fetch(`https://men-s-skincare-server.vercel.app/bookings/${params.id}`)
             }
         ]
     }

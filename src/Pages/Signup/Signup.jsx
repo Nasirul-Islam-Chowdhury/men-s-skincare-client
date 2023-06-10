@@ -2,28 +2,34 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Shared/Contexts/AuthContext";
+import useToken from "../../Shared/Hooks/useToken";
+
+
 const Signup = () => {
+  const navigate = useNavigate();
+  const [createdUserEmail, setCreatedUserEmail] = useState()
+const [token] = useToken(createdUserEmail)
+if(token){
+  navigate('/')
+}
+const saveUser = (name, email) => {
+  const userInfo = {name,email};
+  fetch("https://men-s-skincare-server.vercel.app/users", {
+    method: "POST",
+    headers:{
+      "content-type":"application/json"
+    },
+    body: JSON.stringify(userInfo)
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      setCreatedUserEmail(email)
+      console.log(data)})
+    .catch((err) => console.log(err));
+};
   const { createUser, googlesignin, handleUpdateProfile } =
     useContext(AuthContext);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from.pathname || "/";
-
-  const saveUser = (name, email) => {
-    const userInfo = {name,email};
-    console.log(userInfo)
-    fetch("http://localhost:5000/users", {
-      method: "POST",
-      headers:{
-        "content-type":"application/json"
-      },
-      body: JSON.stringify(userInfo)
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  };
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -32,7 +38,6 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form.confirm.value;
-
     if (password !== confirmPassword) {
       setError("Password didn't match");
     }
@@ -46,23 +51,20 @@ const Signup = () => {
         };
         handleUpdateProfile(userInfo)
           .then((res) => {
-            console.log(name, email)
             saveUser(name,email)
             form.reset();
             setError("User Created Successfully");
-            navigate(from, { replace: true });
           })
           .catch((error) => console.log(error));
       })
       .catch((error) => {
-        console.log(error);
         setError(error.message);
       });
   };
   const handleGooglesignin = () => {
     googlesignin()
       .then((res) => {
-        navigate(from, { replace: true });
+        saveUser(res.user.displayName, res.user.email)
       })
       .catch((error) => setError(error.message));
   };

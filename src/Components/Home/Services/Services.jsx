@@ -5,7 +5,7 @@ const Services = () => {
   const [services, setServices] = useState([]);
   const [laoding, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/limitedServices")
+    fetch("https://men-s-skincare-server.vercel.app/limitedServices")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -37,7 +37,7 @@ const Services = () => {
       </p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
         {services.map((service) => (
-          <div key={service._id} className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
+          <div key={service._id} className="card card-compact lg:w-96 w-full  shadow-xl mx-auto">
             <figure>
               <img
                 src={service.img}

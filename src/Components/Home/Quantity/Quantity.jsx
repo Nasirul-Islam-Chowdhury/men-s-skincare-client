@@ -41,7 +41,7 @@ const Quantity = () => {
           </div>
           <div className="lg:w-6/12 mx-auto">
             <div className="relative w-4/6 h-full lg:top-[-250px] mx-auto">
-              <img className="rounded-full w-full " src={img} alt="" />
+              <img className="rounded-full lg:w-full w-5/6 mx-auto " src={img} alt="" />
             </div>
           </div>
           <div className=" lg:w-3/12">
@@ -67,7 +67,7 @@ const Quantity = () => {
       <div className="bg-[#252422] py-32">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 container mx-auto">
           {cards.map((card, i) => (
-            <div key={i} className={`card w-96 border-2  p-5 my-5 ${card.class} mx-auto`}>
+            <div key={i} className={`card lg:w-96 border-2  p-5 my-5 ${card.class} mx-auto`}>
               <div className="card-body">
                
                   <MdVerified className="w-14 h-14 mx-0"/>
