@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="lg:w-2/6 w-1/2">
           <p>
 
-Using high-quality skin care and having skin treatments such as facials help promote clear and glowing skin. When you use good skin care products, you remove dead skin cells that regenerate into new cells that have you looking and feeling your best.
+Using high-quality skin care and having skin treatments such as facials help promote clear and glowing skin.  good skin care products remove dead skin cells that regenerate into new cells that have you looking and feeling your best.
           </p>
           <button className="btn btn-outline rounded-full lg:px-16 mt-10">
             Learn More
@@ -21,7 +21,7 @@ Using high-quality skin care and having skin treatments such as facials help pro
         </div>
         <div className="lg:w-2/6 w-1/2">
           <p>
-If your skin appears shiny throughout, you likely have oily skin. If it feels tight and is flaky or scaly, you likely have dry skin. If the shine is only in your T-zone, you probably have combination skin. If your skin feels hydrated and comfortable, but not oily, you likely have normal skin.
+If your skin appears shiny throughout, you likely have oily skin. If it feels tight and is flaky or scaly, you likely have dry skin. If the shine is only in your T-zone, you probably have combination skin
           </p>
           <div className="flex justify-end">
 
