@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../../Components/Home/Banner/Banner';
+import Accordian from '../../Components/Accordian/Accordian';
 import Quantity from '../../Components/Home/Quantity/Quantity';
 import Services from '../../Components/Home/Services/Services';
 import HomeGrowingSection from '../../Components/Home/HomeGrowingSection/HomeGrowingSection';
@@ -13,6 +14,7 @@ const Home = () => {
             <Quantity/>
             <Services/>
             <HomeGrowingSection/>
+            <Accordian/>
         </div>
     );
 };

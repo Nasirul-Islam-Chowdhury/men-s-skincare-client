@@ -21,7 +21,6 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value
         const password = form.password.value
-       
         
         userSignin(email, password)
         .then(res => {          
@@ -42,7 +41,6 @@ const Login = () => {
         })
 
         .catch(error=>{
-            
             console.log(error)
            return setError(error.message)
         })

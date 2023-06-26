@@ -19,6 +19,10 @@ const ManageEstheticians = () => {
   const handleDeleteDoctor=(esthetician)=>{
     fetch(`https://men-s-skincare-server.vercel.app/estheticians/${esthetician._id}`,{
         method: "DELETE",
+        headers:{
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        }
+        
       
     })
     .then(res=>res.json())

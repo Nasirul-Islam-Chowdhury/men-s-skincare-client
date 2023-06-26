@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/payment/:id',
-                element: <AdminRoutes><Payment/></AdminRoutes>,
+                element: <Payment/>,
                 loader: ({params})=> fetch(`https://men-s-skincare-server.vercel.app/bookings/${params.id}`)
             }
         ]

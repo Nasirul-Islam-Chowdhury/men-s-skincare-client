@@ -37,6 +37,9 @@ const AllUsers = () => {
     const handleDelete = (id)=>{
         fetch(`https://men-s-skincare-server.vercel.app/user/${id}`,{
             method: "DeLETE",
+            headers:{
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            }
         })
         .then(res=>res.json())
         .then(data=>{
